@@ -290,14 +290,17 @@ function projectOnClick(projectKey) {
 function openCsv() {
 	window.csvContent = 'data:text/csv;charset=utf-8,';
 	var row = [];
-	row.push('Creation Date');
-	row.push('Update Date');
-	row.push('Rule');
+	row.push('File Creation Date');
+	row.push('Last Update Date');
+	row.push('Code Quality Rule');
 	row.push('Status');
 	row.push('Severity');
-	row.push('File');
-	row.push('Line');
-	row.push('Message');
+	row.push('File Address');
+	row.push('Line Number');
+	row.push('Description');
+	row.push('Author');
+	row.push('Resolution');
+	row.push('Issue Type');
 	window.csvContent += toString(row);
 }
 
@@ -331,6 +334,9 @@ function showIssues(responseIssues, options) {
 		row.push(issues[k].component);
 		row.push(issues[k].line);
 		row.push(issues[k].message);
+		row.push(issues[k].author);
+		row.push(issues[k].resolution);
+		row.push(issues[k].type);
 
 		window.csvContent += toString(row);
 	}
